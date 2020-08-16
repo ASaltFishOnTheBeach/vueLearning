@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script> -->
+<script src="./vue.js"></script>
+<body>
+    <div id="app">
+        <div>i am {{name}}</div>
+        <div v-text="name"></div>
+        <div v-html="age"></div>
+        <div>{{doubleAge}}</div>
+        <input type="text" v-model="input">
+        <button @click="handleClick">clickMe</button>
+    </div>
+
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            name: 'Evan',
+            age: 18,
+            input: 'test',
+        },
+        methods:{
+            handleClick(){
+                console.log("i am be cliked, i am ", this.age)
+            },
+        },
+        computed: {
+            doubleAge(){
+                return this.age * 2;
+            }
+        }
+    })
+</script>
+</body>
+</html>
